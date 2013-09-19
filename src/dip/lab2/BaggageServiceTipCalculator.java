@@ -17,6 +17,8 @@ public class BaggageServiceTipCalculator {
     private static final double GOOD_RATE = 0.20;
     private static final double FAIR_RATE = 0.15;
     private static final double POOR_RATE = 0.10;
+    
+    private static final double BASE_RATE = 1;
 
     private double baseTipPerBag;
     private int bagCount;
@@ -37,13 +39,13 @@ public class BaggageServiceTipCalculator {
 
         switch(serviceQuality) {
             case GOOD:
-                tip = baseTipPerBag * bagCount * (1 + GOOD_RATE);
+                tip = baseTipPerBag * bagCount * (BASE_RATE + GOOD_RATE);
                 break;
             case FAIR:
-                tip = baseTipPerBag * bagCount * (1 + FAIR_RATE);
+                tip = baseTipPerBag * bagCount * (BASE_RATE + FAIR_RATE);
                 break;
             case POOR:
-                tip = baseTipPerBag * bagCount * (1 + POOR_RATE);
+                tip = baseTipPerBag * bagCount * (BASE_RATE + POOR_RATE);
                 break;
         }
 
